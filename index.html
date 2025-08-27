@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./tarea2.js" type="module"></script>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        
+        .bars rect{
+            fill: steelblue;
+        }
+
+        .bars rect:hover{
+            fill: orange;
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="600">
+        <g class="bars" transform="translate(50, 0)"></g>
+        <g class="labels"></g>
+    </svg>
+</body>
+</html>
