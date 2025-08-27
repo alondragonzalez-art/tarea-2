@@ -13,26 +13,23 @@ const cities = [
     {name:"Kushchëvskaya",population:4160962}
 ]
 
-d3. select('.bars')
+const svgHeight = 400
+
+d3.select('.bars')
     .selectAll('rect')
     .data(cities)
     .join('rect')
-    .attr('height', 19)
-    .attr('width', function(d){
-        return d.population * 40e-6
-    })
-    .attr('y', function(d, i){
-        return 20 * i
-    })
+    .attr('width', 20)  //ancho barra
+    .attr('height', d => d.population * 40e-6)  //altura población
+    .attr('x', (d, i) => i * 35)  // separacion
+    .attr('y', d => svgHeight - (d.population * 40e-6)) //crecer hacia arriba
 
 d3.select('.labels')
     .selectAll('text')
     .data(cities)
     .join('text')
-    .attr('y', function(d, i){
-        return i * 20 + 13
-    })
-    .text(function(d){
-        return d.name
-    })
-   
+    .attr('x', (d, i) => i * 35 -30)
+    .attr('y', svgHeight + 100)
+    .attr('text-anchor', 'middle')
+    .text(d => d.name)
+    .attr('transform', (d, i) => `rotate(-45, ${i * 30 + 10}, ${svgHeight - 5})`) // girar ciudades
